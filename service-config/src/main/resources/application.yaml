@@ -1,0 +1,30 @@
+server:
+  port: 8012
+spring:
+  profiles:
+    active: git
+  application:
+    name: api-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/alexn256/SpringCloudConfiguration
+          username: alexn256
+          password: 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
+          clone-on-start: true
+          default-label: main
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
