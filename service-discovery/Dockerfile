@@ -5,5 +5,5 @@ RUN mvn -f /home/app/pom.xml -DskipTests=true package
 
 FROM adoptopenjdk/openjdk11:jre-11.0.6_10-alpine
 COPY --from=build /home/app/target/service-discovery-0.0.1-SNAPSHOT.jar /usr/local/lib/service-discovery-0.0.1-SNAPSHOT.jar
-EXPOSE 9090
+EXPOSE 8010
 ENTRYPOINT ["java","-jar","/usr/local/lib/service-discovery-0.0.1-SNAPSHOT.jar"]
