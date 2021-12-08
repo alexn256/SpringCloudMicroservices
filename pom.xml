@@ -10,6 +10,8 @@
     <modules>
         <module>service-discovery</module>
         <module>service-gateway</module>
+        <module>service-config</module>
+        <module>service-users</module>
     </modules>
 
     <properties>
