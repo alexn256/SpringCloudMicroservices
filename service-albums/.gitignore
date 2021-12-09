@@ -1,5 +1,4 @@
 idea
-target
 mvnw
 mvnw.cmd
 *.iml
@@ -8,3 +7,4 @@ mvnw.cmd
 *.apk
 *.jar
 *.log
+/target/
