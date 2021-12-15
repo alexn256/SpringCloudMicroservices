@@ -1,9 +1,11 @@
 package com.alex.webservice.albumservice.controller
 
 import com.alex.webservice.albumservice.data.Album
-import com.alex.webservice.albumservice.dto.AlbumResponseModel
+import com.alex.webservice.albumservice.dto.AlbumResponse
 import com.alex.webservice.albumservice.service.AlbumsService
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -24,16 +26,17 @@ class AlbumController(
     fun userAlbums(
         @PathVariable
         id: String
-    ): List<AlbumResponseModel> {
+    ): ResponseEntity<List<AlbumResponse>> {
         val albums = albumsService.getAlbums(id)
         if (albums.isEmpty()) {
-            return listOf()
+            return ResponseEntity(listOf(), HttpStatus.NOT_FOUND)
         }
-        return albums.map { rec -> toAlbumResponseModel(rec) }.toList()
+        val result = albums.map { rec -> toAlbumResponseModel(rec) }.toList()
+        return ResponseEntity(result, HttpStatus.OK)
     }
 
-    fun toAlbumResponseModel(album: Album): AlbumResponseModel {
-        return AlbumResponseModel(
+    fun toAlbumResponseModel(album: Album): AlbumResponse {
+        return AlbumResponse(
             album.albumId,
             album.userId,
             album.name,

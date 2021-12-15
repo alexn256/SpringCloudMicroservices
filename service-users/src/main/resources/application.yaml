@@ -1,0 +1,43 @@
+server:
+  port: 8080
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring-cloud-test?serverTimezone=UTC
+    username: alex
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  devtools:
+    restart:
+      enabled: true
+  application:
+    name: users-ws
+  config:
+    import: optional:configserver:http://localhost:8012
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8010/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+jwt:
+  token:
+    expiration: 864000000
+    secret: hfgry463hf746hf573ydh475fhy5739
+login:
+  url:
+    path: /users/login
+remote:
+  property:
+    x: local property x
+    y: local Property y
+logging:
+  file:
+    path: users-ws.log

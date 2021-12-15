@@ -8,3 +8,5 @@ mvnw.cmd
 *.apk
 *.jar
 *.log
+/service-albums/target/
+/service-users/target/
