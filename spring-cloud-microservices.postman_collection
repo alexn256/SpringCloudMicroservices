@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "a67f6d44-07d4-437e-9970-337fa278250b",
+		"name": "user-restfull-web-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Delete User by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8091/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8091/users/14ca566c-3dc7-46dc-a80-da6a65fc3410",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"users",
+						"14ca566c-3dc7-46dc-a80-da6a65fc3410"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Alex\",\n    \"lastName\": \"Snowden\",\n    \"email\": \"test@gmail.com\",\n    \"password\": \"qwerty100\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/users-ws/users/1a7bf006-141b-46e1-9d87-920615a8c46c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"users-ws",
+						"users",
+						"1a7bf006-141b-46e1-9d87-920615a8c46c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZTVlMzNjNC00YjNiLTQ0OTAtYTU3Yi0zY2YyMmFlNDFlZGEiLCJleHAiOjE2Mzk1ODAwODZ9.TS4WYVMQ8VU79lJsXXjJYPy8Ob_yXZBvqSJ7Z7U6XK9yA1jHTkDyZRSL9KvTxojWWSOSOEs_qtlM_4k797PG5g",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/users/status/check",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"status",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bus Refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8012/actuator/busrefresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8012",
+					"path": [
+						"actuator",
+						"busrefresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"qwerty100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/users-ws/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"users-ws",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Albums by User ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52908/users//albums",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52908",
+					"path": [
+						"users",
+						"",
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Alex\",\r\n    \"lastName\": \"Snowden\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"qwerty100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/users-ws/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"users-ws",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
