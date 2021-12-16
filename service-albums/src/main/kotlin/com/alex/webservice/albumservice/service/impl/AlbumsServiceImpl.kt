@@ -11,14 +11,14 @@ class AlbumsServiceImpl: AlbumsService {
         return mutableListOf(
             Album(1L,
                 "albumId1",
-                "userId1",
+                userId,
                 "album 1 name",
                 "album 1 description"),
-            Album(1L,
-                "albumId1",
-                "userId1",
-                "album 1 name",
-                "album 1 description"),
+            Album(2L,
+                "albumId2",
+                userId,
+                "album 2 name",
+                "album 2 description"),
         )
     }
 }

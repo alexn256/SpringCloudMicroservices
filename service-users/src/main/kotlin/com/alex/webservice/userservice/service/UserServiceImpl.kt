@@ -1,5 +1,6 @@
 package com.alex.webservice.userservice.service
 
+import com.alex.webservice.userservice.client.AlbumsServiceClient
 import com.alex.webservice.userservice.dto.UserDto
 import com.alex.webservice.userservice.repository.UserRepository
 import com.alex.webservice.userservice.response.AlbumResponse
@@ -11,14 +12,14 @@ import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
-import org.springframework.web.client.RestTemplate
 import java.util.*
 
 @Service
 class UserServiceImpl(
     val userRepository: UserRepository,
     val passwordEncoder: BCryptPasswordEncoder,
-    val restTemplate: RestTemplate,
+    //val restTemplate: RestTemplate,
+    val albumsClient: AlbumsServiceClient,
     val env: Environment
 ) : UserService {
 
@@ -46,13 +47,7 @@ class UserServiceImpl(
     override fun getUserById(id: String): UserDto {
         val user = userRepository.findUserByUserId(id)
             ?: throw UsernameNotFoundException(id)
-        val url = String.format(env.getProperty("albums.url")!!, id)
-        val albumsResponse = restTemplate.exchange(
-            url,
-            HttpMethod.GET,
-            null,
-            object : ParameterizedTypeReference<List<AlbumResponse>>() {})
-        val albums = albumsResponse.body ?: listOf()
+        val albums = albumsClient.getAlbums(id)
         return user.toDto(albums)
     }
 }
