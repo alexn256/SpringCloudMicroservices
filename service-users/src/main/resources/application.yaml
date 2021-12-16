@@ -41,3 +41,10 @@ remote:
 logging:
   file:
     path: users-ws.log
+  level:
+    com:
+      alex:
+        webservice:
+          userservice:
+            client:
+              AlbumsServiceClient: DEBUG

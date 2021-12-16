@@ -1,5 +1,6 @@
 package com.alex.webservice.userservice
 
+import feign.Logger
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.cloud.client.loadbalancer.LoadBalanced
@@ -18,6 +19,8 @@ class UserRestWebServiceApplication {
 	@Bean
 	@LoadBalanced
 	fun restTemplate() = RestTemplate()
+	@Bean
+	fun feignLoggerLevel() = Logger.Level.FULL
 }
 
 fun main(args: Array<String>) {
