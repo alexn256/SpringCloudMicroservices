@@ -48,3 +48,6 @@ logging:
           userservice:
             client:
               AlbumsServiceClient: DEBUG
+feign:
+  hystrix:
+    enabled: true

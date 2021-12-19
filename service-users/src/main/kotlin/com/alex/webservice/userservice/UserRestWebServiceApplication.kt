@@ -1,5 +1,6 @@
 package com.alex.webservice.userservice
 
+import com.alex.webservice.userservice.client.FeignErrorDecoder
 import feign.Logger
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -21,6 +22,8 @@ class UserRestWebServiceApplication {
 	fun restTemplate() = RestTemplate()
 	@Bean
 	fun feignLoggerLevel() = Logger.Level.FULL
+//	@Bean
+//	fun errorDecoder() = FeignErrorDecoder()
 }
 
 fun main(args: Array<String>) {

@@ -18,9 +18,7 @@ import java.util.*
 class UserServiceImpl(
     val userRepository: UserRepository,
     val passwordEncoder: BCryptPasswordEncoder,
-    //val restTemplate: RestTemplate,
     val albumsClient: AlbumsServiceClient,
-    val env: Environment
 ) : UserService {
 
     override fun createUser(user: UserDto): UserDto {
