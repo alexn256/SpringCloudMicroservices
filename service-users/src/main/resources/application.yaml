@@ -49,5 +49,5 @@ logging:
             client:
               AlbumsServiceClient: DEBUG
 feign:
-  hystrix:
+  circuitbreaker:
     enabled: true

@@ -7,13 +7,12 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component
 import org.springframework.web.server.ResponseStatusException
 import java.lang.Exception
-import java.lang.IllegalArgumentException
 
 @Component
 class FeignErrorDecoder(val env: Environment) : ErrorDecoder {
 
     override fun decode(methodKey: String, response: Response): Exception? = when (response.status()) {
-        400 -> IllegalArgumentException(response.reason())
+        500 -> Exception("Connection was refused")
         404 -> {
             if (methodKey.contains("getAlbum")) {
                 ResponseStatusException(
