@@ -1,5 +1,6 @@
 FROM maven:3.6.0-jdk-11-slim AS build
 COPY src /home/app/src
+COPY test /home/app/test
 COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml -DskipTests=true package
 
