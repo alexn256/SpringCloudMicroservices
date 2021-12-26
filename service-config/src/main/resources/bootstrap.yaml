@@ -1,7 +1,0 @@
-encrypt:
-  key: sdlkfsd65Ffgdf5d6fG6sdf56h
-spring:
-  cloud:
-    config:
-      uri: http://localhost:8012
-      name: config-server

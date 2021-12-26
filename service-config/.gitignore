@@ -5,4 +5,4 @@ target
 *.apk
 *.jar
 *.log
-src/main/resources/application.yaml
+src/resources/application.yaml
