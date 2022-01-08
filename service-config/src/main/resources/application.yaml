@@ -2,21 +2,18 @@ server:
   port: 8012
 spring:
   profiles:
-    active: native
+    active: git
   application:
     name: api-config-server
   cloud:
     config:
       server:
-        native:
-          search-locations: C:\dev\projects\SpringCloudConfiguration
         git:
           uri: https://github.com/alexn256/SpringCloudConfiguration
           username: alexn256
           password:
-          clone-on-start: true
           default-label: main
-          ignore-local-ssh-settings: true
+          clone-on-start: true
     bus:
       enabled: true
       refresh:
